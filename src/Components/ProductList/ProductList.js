@@ -46,9 +46,9 @@ const ProductList = ({ click }) => {
               size={size}
               weight={weight}
               comments={comments}
-              deleteCard={() =>
-                dispatch(productOperations.fetchDeleteProduct(id))
-              }
+              // deleteCard={() =>
+              //   dispatch(productOperations.fetchDeleteProduct(id))
+              // }
               openModal={click}
             />
           )

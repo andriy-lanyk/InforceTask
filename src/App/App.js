@@ -1,9 +1,6 @@
 import { useState } from "react";
-
-import ProductList from "../Components/ProductList";
-import Filter from "../Components/Filter";
+import ProductsListView from "../Views/ProductsListView";
 import ModalWindow from "../Components/ModalWindow";
-import AddProductForm from "../Components/AddProductForm";
 import "./App.css";
 
 import "react-toastify/dist/ReactToastify.css";
@@ -30,11 +27,8 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Test shop application</h1>
-      <Filter />
-      <h2>Products</h2>
-      <ProductList click={openModal} />
-      <AddProductForm />
+      <ProductsListView openModal={openModal} />
+
       {modal && <ModalWindow closeModal={toggleModal} />}
       <ToastContainer
         position="top-right"

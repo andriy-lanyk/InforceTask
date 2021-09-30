@@ -6,7 +6,7 @@ import { toast } from "react-toastify";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 
-import { Form } from "./AddProductForm.styles";
+import { Form, FormContainer } from "./AddProductForm.styles";
 
 const AddProductForm = () => {
   const [openForm, setOpenForm] = useState(false);
@@ -82,7 +82,7 @@ const AddProductForm = () => {
   }
 
   return (
-    <>
+    <FormContainer>
       <Button onClick={toggleForm} variant="outlined" size="medium">
         {openForm ? "Close add product form" : "Open add product form"}
       </Button>
@@ -159,7 +159,7 @@ const AddProductForm = () => {
           </Button>
         </Form>
       )}
-    </>
+    </FormContainer>
   );
 };
 

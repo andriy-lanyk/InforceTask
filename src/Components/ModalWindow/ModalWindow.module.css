@@ -9,3 +9,16 @@
   align-items: center;
   background-color: rgba(0, 0, 0, 0.8);
 }
+
+.mainContainer {
+  width: auto;
+  height: auto;
+  text-align: center;
+  padding: 20px;
+  background-color: lightskyblue;
+}
+
+.btnContainer {
+  display: flex;
+  justify-content: space-around;
+}

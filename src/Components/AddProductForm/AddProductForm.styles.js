@@ -9,4 +9,10 @@ const Form = styled.form`
   margin-top: 15px;
 `;
 
-export { Form };
+const FormContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
+export { Form, FormContainer };
