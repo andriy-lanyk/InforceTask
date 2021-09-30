@@ -30,14 +30,15 @@ export default function ProductItem({
           <Typography gutterBottom variant="h5" component="div">
             {name}
           </Typography>
-          <Typography variant="body2" color="text.secondary">
+          <Typography component={"span"} variant="body2" color="text.secondary">
             <DivContainer>
-              <p>Count: {count}</p>
-              <p>Weight: {weight}</p>
-              <p>Width: {size.width}</p>
-              <p>Height: {size.height}</p>
+              <span>Count: {count}</span>
+              <span>Weight: {weight}</span>
+              <span>Width: {size.width}</span>
+              <span>Height: {size.height}</span>
             </DivContainer>
-            {comments.length > 0 && comments.map((comment) => <p>{comment}</p>)}
+            {/* {comments.length > 0 &&
+              comments.map((comment, i) => <p key={comment + i}>{comment}</p>)} */}
           </Typography>
         </CardContent>
       </CardActionArea>

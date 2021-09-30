@@ -6,6 +6,9 @@ import ModalWindow from "../Components/ModalWindow";
 import AddProductForm from "../Components/AddProductForm";
 import "./App.css";
 
+import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer } from "react-toastify";
+
 function App() {
   const [modal, setModal] = useState(false);
 
@@ -33,6 +36,17 @@ function App() {
       <ProductList click={openModal} />
       <AddProductForm />
       {modal && <ModalWindow closeModal={toggleModal} />}
+      <ToastContainer
+        position="top-right"
+        autoClose={4000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
     </div>
   );
 }

@@ -1,0 +1,12 @@
+import styled from "@emotion/styled";
+
+const Form = styled.form`
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  padding: 20px;
+  border: 3px solid #87cefa;
+  margin-top: 15px;
+`;
+
+export { Form };

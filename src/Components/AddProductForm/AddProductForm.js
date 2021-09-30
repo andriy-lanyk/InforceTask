@@ -1,11 +1,17 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import * as productOperations from "../../Redux/Product/product-operations";
-// import { getAllProducts } from '../../Redux/Product/product-selectors';
+
+import { toast } from "react-toastify";
+import TextField from "@material-ui/core/TextField";
+import Button from "@material-ui/core/Button";
+
+import { Form } from "./AddProductForm.styles";
 
 const AddProductForm = () => {
+  const [openForm, setOpenForm] = useState(false);
   const [name, setName] = useState("");
-  const [image, setImage] = useState("");
+  const [imageUrl, setImageUrl] = useState("");
   const [count, setCount] = useState("");
   const [width, setWidth] = useState("");
   const [height, setHeight] = useState("");
@@ -20,8 +26,8 @@ const AddProductForm = () => {
       case "name":
         setName(value);
         break;
-      case "image":
-        setImage(value);
+      case "imageUrl":
+        setImageUrl(value);
         break;
       case "count":
         setCount(value);
@@ -43,92 +49,117 @@ const AddProductForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const size = { width, height };
+    const comments = [];
 
     dispatch(
-      productOperations.fetchPostProduct({ name, image, count, size, weight })
+      productOperations.fetchPostProduct({
+        name,
+        imageUrl,
+        count,
+        size,
+        weight,
+        comments,
+      })
     );
+    toast.success(`${name} was added to shop`, {
+      theme: "colored",
+      autoClose: 2500,
+    });
     reset();
   };
 
   const reset = () => {
     setName("");
-    setImage("");
+    setImageUrl("");
     setCount("");
     setWidth("");
     setHeight("");
     setWeight("");
   };
 
+  function toggleForm() {
+    setOpenForm(!openForm);
+  }
+
   return (
-    <form onSubmit={handleSubmit}>
-      <label>
-        Name
-        <input
-          type="text"
-          name="name"
-          title="Enter name of a product"
-          required
-          onChange={handleChange}
-          value={name}
-        />
-      </label>
-      <label>
-        Image
-        <input
-          type="text"
-          name="image"
-          title="Enter URL of a product"
-          required
-          onChange={handleChange}
-          value={image}
-        />
-      </label>
-      <label>
-        Count
-        <input
-          type="number"
-          name="count"
-          title="Enter count of a product"
-          required
-          onChange={handleChange}
-          value={count}
-        />
-      </label>
-      <label>
-        Width of a product
-        <input
-          type="number"
-          name="width"
-          title="Enter count of a product"
-          required
-          onChange={handleChange}
-          value={width}
-        />
-      </label>
-      <label>
-        Height of a product
-        <input
-          type="number"
-          name="height"
-          title="Enter height of a product"
-          required
-          onChange={handleChange}
-          value={height}
-        />
-      </label>
-      <label>
-        Weight
-        <input
-          type="number"
-          name="weight"
-          title="Enter weight of a product"
-          required
-          onChange={handleChange}
-          value={weight}
-        />
-      </label>
-      <button type="submit">Add product</button>
-    </form>
+    <>
+      <Button onClick={toggleForm} variant="outlined" size="medium">
+        {openForm ? "Close add product form" : "Open add product form"}
+      </Button>
+      {openForm && (
+        <Form onSubmit={handleSubmit}>
+          <TextField
+            fullWidth
+            margin="normal"
+            label="Name"
+            type="text"
+            name="name"
+            value={name}
+            required
+            onChange={handleChange}
+            size="small"
+          />
+          <TextField
+            fullWidth
+            margin="normal"
+            label="Image URL"
+            type="text"
+            name="imageUrl"
+            value={imageUrl}
+            required
+            onChange={handleChange}
+            size="small"
+          />
+          <TextField
+            fullWidth
+            margin="normal"
+            label="Count"
+            type="number"
+            name="count"
+            value={count}
+            required
+            onChange={handleChange}
+            size="small"
+          />
+          <TextField
+            fullWidth
+            margin="normal"
+            label="Width of a product"
+            type="number"
+            name="width"
+            value={width}
+            required
+            onChange={handleChange}
+            size="small"
+          />
+          <TextField
+            fullWidth
+            margin="normal"
+            label="Height of a product"
+            type="number"
+            name="height"
+            value={height}
+            required
+            onChange={handleChange}
+            size="small"
+          />
+          <TextField
+            fullWidth
+            margin="normal"
+            label="Weight"
+            type="number"
+            name="weight"
+            value={weight}
+            required
+            onChange={handleChange}
+            size="small"
+          />
+          <Button type="submit" variant="contained">
+            Add product
+          </Button>
+        </Form>
+      )}
+    </>
   );
 };
 

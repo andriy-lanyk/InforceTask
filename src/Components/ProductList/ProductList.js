@@ -15,7 +15,7 @@ const List = styled.ul`
   grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
   grid-gap: 16px;
   margin-top: 0;
-  margin-bottom: 0;
+  margin-bottom: 20px;
   padding: 0;
   list-style: none;
   margin-left: auto;
@@ -38,6 +38,7 @@ const ProductList = ({ click }) => {
         {visibleProducts.map(
           ({ id, imageUrl, name, count, size, weight, comments }) => (
             <ProductItem
+              key={id}
               id={id}
               imageUrl={imageUrl}
               name={name}
@@ -50,24 +51,6 @@ const ProductList = ({ click }) => {
               }
               openModal={click}
             />
-            // <li key={id}>
-            //   <div onClick={click}>
-            //     <h2>{name}</h2>
-            //     <img src={imageUrl} alt={name} />
-            // <p>{count}</p>
-            // <p>{size.width}</p>
-            // <p>{size.height}</p>
-            // <p>{weight}</p>
-            //   </div>
-            //   <button
-            //     type="button"
-            //     onClick={() =>
-            //       dispatch(productOperations.fetchDeleteProduct(id))
-            //     }
-            //   >
-            //     Delete
-            //   </button>
-            // </li>
           )
         )}
       </List>

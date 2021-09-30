@@ -29,6 +29,57 @@
         "Comment",
         "Comment"
       ]
+    },
+    {
+      "id": 3,
+      "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSaZhPCy3prp2F2aY2LdjCW_ye875VgCL66ZkRyL_qaLsXobPSAptJYPSNhRg8T6OXJinM&usqp=CAU",
+      "name": "Brand 3",
+      "count": 4,
+      "size": {
+        "width": 400,
+        "height": 400
+      },
+      "weight": "400g",
+      "comments": [
+        "Comment",
+        "Comment"
+      ]
+    },
+    {
+      "name": "Adidas",
+      "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTujjiuCr09U8IGv7y0xRm3VVvgno-MRZ1PCmGB_vN8TlMYlF1XYd4bBGLQiEGVb5VOWts&usqp=CAU",
+      "count": "5",
+      "size": {
+        "width": "50",
+        "height": "50"
+      },
+      "weight": "50",
+      "comments": [],
+      "id": 4
+    },
+    {
+      "name": "Nike",
+      "imageUrl": "https://img.the-village.ru/y7oMBXzv6-asTrmzL8EYjZUjgo0s9BpaaX_vyxbFu58/rs:fill:620:413/q:88/plain/post-image_featured/_5o5nl-YnN0WF9VDIJFBgg.jpg",
+      "count": "6",
+      "size": {
+        "width": "60",
+        "height": "60"
+      },
+      "weight": "60",
+      "comments": [],
+      "id": 5
+    },
+    {
+      "name": "Reebock",
+      "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrmzVfaWK7rlK3YMWPQYAEUW7EElPX1eRVHzB0WThSuwOG2xWNrEt6aWUfk3_zybj1OKw&usqp=CAU",
+      "count": "7",
+      "size": {
+        "width": "70",
+        "height": "70"
+      },
+      "weight": "70",
+      "comments": [],
+      "id": 6
     }
   ],
   "comments": [
