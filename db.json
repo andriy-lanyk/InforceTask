@@ -1,0 +1,42 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "imageUrl": "https://ya-modnaya.ru/statii/yes/3/15/kro0001.jpg",
+      "name": "Product name",
+      "count": 4,
+      "size": {
+        "width": 200,
+        "height": 200
+      },
+      "weight": "200g",
+      "comments": [
+        "CommentModel",
+        "CommentModel"
+      ]
+    },
+    {
+      "id": 2,
+      "imageUrl": "https://cdnimg.rg.ru/img/content/182/85/64/krossovki_d_850.jpg",
+      "name": "Brand",
+      "count": 6,
+      "size": {
+        "width": 300,
+        "height": 300
+      },
+      "weight": "300g",
+      "comments": [
+        "Comment",
+        "Comment"
+      ]
+    }
+  ],
+  "comments": [
+    {
+      "id": 3,
+      "productId": 1,
+      "description": "some text here",
+      "date": "14:00 22.08.2021"
+    }
+  ]
+}
