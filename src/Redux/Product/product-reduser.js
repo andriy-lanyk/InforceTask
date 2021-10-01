@@ -54,7 +54,12 @@ const filter = createReducer("", {
   [productActions.filterProduct]: (_, { payload }) => payload,
 });
 
+const sortOrder = createReducer("", {
+  [productActions.sortProduct]: (_, { payload }) => payload,
+});
+
 export default combineReducers({
   productsItems,
   filter,
+  sortOrder,
 });

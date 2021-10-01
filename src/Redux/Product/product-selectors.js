@@ -2,6 +2,7 @@ import { createSelector } from "reselect";
 
 const getAllProducts = (state) => state.products.productsItems.items;
 const getFilter = (state) => state.products.filter;
+const getSortOrder = (state) => state.products.sortOrder;
 const getLoading = (state) => state.products.productsItems.isLoading;
 const getProduct = (state) => state.products.productsItems.product;
 
@@ -21,4 +22,5 @@ export {
   getFilteredProducts,
   getLoading,
   getProduct,
+  getSortOrder,
 };

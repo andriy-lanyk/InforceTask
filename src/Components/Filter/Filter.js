@@ -6,7 +6,7 @@ import {
 } from "../../Redux/Product/product-selectors";
 
 import TextField from "@material-ui/core/TextField";
-import { Message } from "./Filter.styles";
+// import { Message } from './Filter.styles';
 
 const Filter = () => {
   const filter = useSelector(getFilter);
@@ -19,7 +19,7 @@ const Filter = () => {
 
   return products.length !== 0 ? (
     <TextField
-      margin="normal"
+      margin="none"
       size="small"
       label="Find product by name"
       type="text"
@@ -28,10 +28,16 @@ const Filter = () => {
       onChange={handleChange}
     />
   ) : (
-    <Message>
-      Our shop doesn`t have any products in the current time. Please, visit us
-      later
-    </Message>
+    <TextField
+      disabled
+      margin="none"
+      size="small"
+      label="Find product by name"
+      type="text"
+      name="Find product"
+      value={filter}
+      onChange={handleChange}
+    />
   );
 };
 

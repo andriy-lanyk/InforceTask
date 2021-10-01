@@ -1,11 +1,14 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { useLocation } from "react-router-dom";
 import * as productOperations from "../../Redux/Product/product-operations";
 import {
   getAllProducts,
   getFilteredProducts,
+  getSortOrder,
 } from "../../Redux/Product/product-selectors";
-import ProductItem from "../PropuctItem";
+import * as productActions from "../../Redux/Product/product-actions";
+import ProductItem from "../ProductItem";
 
 import styled from "@emotion/styled";
 
@@ -23,8 +26,11 @@ const List = styled.ul`
 `;
 
 const ProductList = () => {
+  const location = useLocation();
   const products = useSelector(getAllProducts);
   const visibleProducts = useSelector(getFilteredProducts);
+  const sortOrder = useSelector(getSortOrder);
+  const [sortedProducts, setSortedProducts] = useState(visibleProducts);
 
   const dispatch = useDispatch();
 
@@ -32,10 +38,33 @@ const ProductList = () => {
     dispatch(productOperations.fetchGetProduct());
   }, [dispatch]);
 
+  useEffect(() => {
+    if (location.search === "") {
+      dispatch(productActions.sortProduct("ascending"));
+    }
+  }, [location, dispatch]);
+  console.log("sortOrder: ", sortOrder);
+
+  useEffect(() => {
+    setSortedProducts(() =>
+      [...visibleProducts].sort((a, b) => {
+        return sortOrder === "ascending"
+          ? a.name > b.name
+            ? 1
+            : -1
+          : a.name > b.name
+          ? -1
+          : 1;
+      })
+    );
+  }, [sortOrder, visibleProducts]);
+
+  console.log("sortedProducts: ", sortedProducts);
+
   return (
     products.length > 0 && (
       <List>
-        {visibleProducts.map(
+        {sortedProducts.map(
           ({ id, imageUrl, name, count, size, weight, comments }) => (
             <ProductItem
               key={id}

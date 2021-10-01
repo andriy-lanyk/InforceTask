@@ -20,6 +20,7 @@ const addProduct = createAction(
 const getProduct = createAction("product/get");
 const deleteProduct = createAction("product/delete");
 const filterProduct = createAction("product/filter");
+const sortProduct = createAction("product/sort");
 const getProductId = createAction("product/getId");
 const patchProduct = createAction(
   "product/patch",
@@ -48,6 +49,7 @@ export {
   getProductId,
   deleteProduct,
   filterProduct,
+  sortProduct,
   patchProduct,
   fetchProductRequest,
   fetchProductSuccess,

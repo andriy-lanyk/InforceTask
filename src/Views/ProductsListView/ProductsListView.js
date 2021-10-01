@@ -16,6 +16,7 @@ import ChevronRightIcon from "@material-ui/icons/ChevronRight";
 // import ListItemText from '@material-ui/core/ListItemText';
 
 import Filter from "../../Components/Filter";
+import SortedFilter from "../../Components/SortedFilter";
 import ProductList from "../../Components/ProductList";
 import AddProductForm from "../../Components/AddProductForm";
 
@@ -122,6 +123,7 @@ export default function ProductsListView({ openModal }) {
         </DrawerHeader>
         <Divider />
         <Filter />
+        <SortedFilter />
       </Drawer>
       <Main open={open}>
         <DrawerHeader />
