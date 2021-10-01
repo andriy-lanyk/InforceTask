@@ -1,23 +1,23 @@
 {
   "files": {
-    "main.css": "/InforceTask/static/css/main.a4da8d60.chunk.css",
-    "main.js": "/InforceTask/static/js/main.42388190.chunk.js",
-    "main.js.map": "/InforceTask/static/js/main.42388190.chunk.js.map",
+    "main.css": "/InforceTask/static/css/main.c5a53c83.chunk.css",
+    "main.js": "/InforceTask/static/js/main.b15b7c4b.chunk.js",
+    "main.js.map": "/InforceTask/static/js/main.b15b7c4b.chunk.js.map",
     "runtime-main.js": "/InforceTask/static/js/runtime-main.7ebb31e7.js",
     "runtime-main.js.map": "/InforceTask/static/js/runtime-main.7ebb31e7.js.map",
     "static/css/2.f4c56af9.chunk.css": "/InforceTask/static/css/2.f4c56af9.chunk.css",
-    "static/js/2.e92ea290.chunk.js": "/InforceTask/static/js/2.e92ea290.chunk.js",
-    "static/js/2.e92ea290.chunk.js.map": "/InforceTask/static/js/2.e92ea290.chunk.js.map",
+    "static/js/2.1d75cb1d.chunk.js": "/InforceTask/static/js/2.1d75cb1d.chunk.js",
+    "static/js/2.1d75cb1d.chunk.js.map": "/InforceTask/static/js/2.1d75cb1d.chunk.js.map",
     "index.html": "/InforceTask/index.html",
     "static/css/2.f4c56af9.chunk.css.map": "/InforceTask/static/css/2.f4c56af9.chunk.css.map",
-    "static/css/main.a4da8d60.chunk.css.map": "/InforceTask/static/css/main.a4da8d60.chunk.css.map",
-    "static/js/2.e92ea290.chunk.js.LICENSE.txt": "/InforceTask/static/js/2.e92ea290.chunk.js.LICENSE.txt"
+    "static/css/main.c5a53c83.chunk.css.map": "/InforceTask/static/css/main.c5a53c83.chunk.css.map",
+    "static/js/2.1d75cb1d.chunk.js.LICENSE.txt": "/InforceTask/static/js/2.1d75cb1d.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.7ebb31e7.js",
     "static/css/2.f4c56af9.chunk.css",
-    "static/js/2.e92ea290.chunk.js",
-    "static/css/main.a4da8d60.chunk.css",
-    "static/js/main.42388190.chunk.js"
+    "static/js/2.1d75cb1d.chunk.js",
+    "static/css/main.c5a53c83.chunk.css",
+    "static/js/main.b15b7c4b.chunk.js"
   ]
 }
