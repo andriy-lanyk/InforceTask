@@ -3,6 +3,7 @@ import * as productActions from "./product-actions";
 
 const InitialState = {
   items: [],
+  product: [],
   isLoading: false,
   error: "",
 };
@@ -11,6 +12,21 @@ const productsItems = createReducer(InitialState, {
   [productActions.getProduct]: (state, { payload }) => ({
     ...state,
     items: [...payload],
+  }),
+  [productActions.getProductId]: (state, { payload }) => ({
+    ...state,
+    product: payload,
+  }),
+  [productActions.patchProduct]: (state, { payload }) => ({
+    ...state,
+    items: state.items.map((elem) => {
+      if (elem.id === payload.id) {
+        return payload;
+      } else {
+        return elem;
+      }
+    }),
+    product: payload,
   }),
   [productActions.addProduct]: (state, { payload }) => ({
     ...state,

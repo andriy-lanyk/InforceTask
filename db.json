@@ -19,16 +19,13 @@
       "id": 2,
       "imageUrl": "https://cdnimg.rg.ru/img/content/182/85/64/krossovki_d_850.jpg",
       "name": "Brand",
-      "count": 6,
+      "count": "10",
       "size": {
-        "width": 300,
-        "height": 300
+        "width": "10",
+        "height": "10"
       },
-      "weight": "300g",
-      "comments": [
-        "Comment",
-        "Comment"
-      ]
+      "weight": "10",
+      "comments": []
     },
     {
       "id": 3,
@@ -72,9 +69,9 @@
     {
       "name": "Reebock",
       "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrmzVfaWK7rlK3YMWPQYAEUW7EElPX1eRVHzB0WThSuwOG2xWNrEt6aWUfk3_zybj1OKw&usqp=CAU",
-      "count": "7",
+      "count": "700",
       "size": {
-        "width": "70",
+        "width": "7000",
         "height": "70"
       },
       "weight": "70",

@@ -1,23 +1,47 @@
-import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useEffect, useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import * as productOperations from "../../Redux/Product/product-operations";
+import { createPortal } from "react-dom";
+import { getProduct } from "../../Redux/Product/product-selectors";
 
 import { toast } from "react-toastify";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 
-import { Form, FormContainer } from "./AddProductForm.styles";
+import styles from "./ChangeProduct.module.css";
 
-const AddProductForm = () => {
-  const [openForm, setOpenForm] = useState(false);
-  const [name, setName] = useState("");
-  const [imageUrl, setImageUrl] = useState("");
-  const [count, setCount] = useState("");
-  const [width, setWidth] = useState("");
-  const [height, setHeight] = useState("");
-  const [weight, setWeight] = useState("");
+const modalRoot = document.querySelector("#modal-root");
+
+function ChangeProduct({ closeModal, id }) {
+  const product = useSelector(getProduct);
+  const [name, setName] = useState(product.name);
+  const [imageUrl, setImageUrl] = useState(product.imageUrl);
+  const [count, setCount] = useState(product.count);
+  const [width, setWidth] = useState(product.size.width);
+  const [height, setHeight] = useState(product.size.height);
+  const [weight, setWeight] = useState(product.weight);
+
+  useEffect(() => {
+    window.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  });
 
   const dispatch = useDispatch();
+
+  function handleKeyDown(e) {
+    if (e.code === "Escape") {
+      closeModal();
+    }
+  }
+
+  function handleClickOnBackdrop(e) {
+    if (e.target === e.currentTarget) {
+      closeModal();
+    }
+  }
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -51,42 +75,29 @@ const AddProductForm = () => {
     const comments = [];
 
     dispatch(
-      productOperations.fetchPostProduct({
-        name,
-        imageUrl,
-        count,
-        size,
-        weight,
-        comments,
-      })
+      productOperations.fetchPatchProductId(
+        {
+          name,
+          imageUrl,
+          count,
+          size,
+          weight,
+          comments,
+        },
+        id
+      )
     );
-    toast.success(`${name} was added to shop`, {
+    toast.success(`Product ${name} was changed`, {
       theme: "colored",
       autoClose: 2500,
     });
-    reset();
+    closeModal();
   };
 
-  const reset = () => {
-    setName("");
-    setImageUrl("");
-    setCount("");
-    setWidth("");
-    setHeight("");
-    setWeight("");
-  };
-
-  function toggleForm() {
-    setOpenForm(!openForm);
-  }
-
-  return (
-    <FormContainer>
-      <Button onClick={toggleForm} variant="contained" size="medium">
-        {openForm ? "Close add product form" : "Open add product form"}
-      </Button>
-      {openForm && (
-        <Form onSubmit={handleSubmit}>
+  return createPortal(
+    <div className={styles.overlay} onClick={handleClickOnBackdrop}>
+      <div className={styles.mainContainer}>
+        <form className={styles.formContainer} onSubmit={handleSubmit}>
           <TextField
             fullWidth
             margin="normal"
@@ -156,10 +167,11 @@ const AddProductForm = () => {
           <Button type="submit" variant="contained">
             Add product
           </Button>
-        </Form>
-      )}
-    </FormContainer>
+        </form>
+      </div>
+    </div>,
+    modalRoot
   );
-};
+}
 
-export default AddProductForm;
+export default ChangeProduct;

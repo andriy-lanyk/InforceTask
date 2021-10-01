@@ -1,0 +1,8 @@
+.link {
+  text-decoration: none;
+}
+
+.divContainer {
+  display: flex;
+  justify-content: center;
+}

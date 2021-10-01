@@ -1,0 +1,32 @@
+.productContainer {
+  margin-top: 20px;
+  display: flex;
+  padding-bottom: 10px;
+}
+
+.productImage {
+  margin-right: 15px;
+  width: 70%;
+}
+
+.productImage img {
+  display: block;
+  max-width: 100%;
+}
+
+.productDescription {
+  padding: 0;
+  width: 30%;
+}
+
+.productDescription ul {
+  padding: 0;
+}
+
+.productDescription li {
+  list-style: none;
+}
+
+.container {
+  padding: 0 20px;
+}

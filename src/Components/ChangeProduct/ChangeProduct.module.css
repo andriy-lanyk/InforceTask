@@ -1,0 +1,28 @@
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.mainContainer {
+  width: auto;
+  height: auto;
+  text-align: center;
+  padding: 20px;
+  background-color: lightskyblue;
+}
+
+.formContainer {
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  padding: 20px;
+  border: 3px solid #87cefa;
+  margin-top: 15px;
+}

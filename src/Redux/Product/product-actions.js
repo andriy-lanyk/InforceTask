@@ -20,6 +20,23 @@ const addProduct = createAction(
 const getProduct = createAction("product/get");
 const deleteProduct = createAction("product/delete");
 const filterProduct = createAction("product/filter");
+const getProductId = createAction("product/getId");
+const patchProduct = createAction(
+  "product/patch",
+  ({ id, imageUrl, name, count, size, weight, comments = [] }) => {
+    return {
+      payload: {
+        id,
+        imageUrl,
+        name,
+        count,
+        size,
+        weight,
+        comments,
+      },
+    };
+  }
+);
 
 const fetchProductRequest = createAction("product/fetchRequest");
 const fetchProductSuccess = createAction("product/fetchSuccess");
@@ -28,8 +45,10 @@ const fetchProductError = createAction("product/fetchError");
 export {
   addProduct,
   getProduct,
+  getProductId,
   deleteProduct,
   filterProduct,
+  patchProduct,
   fetchProductRequest,
   fetchProductSuccess,
   fetchProductError,

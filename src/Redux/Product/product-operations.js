@@ -15,6 +15,33 @@ export const fetchGetProduct = () => async (dispatch) => {
   }
 };
 
+export const fetchGetProductId = (id) => async (dispatch) => {
+  const productId = id.toString();
+  dispatch(productActions.fetchProductRequest());
+
+  try {
+    const { data } = await axios.get(`/products/${productId}`);
+    dispatch(productActions.getProductId(data));
+    dispatch(productActions.fetchProductSuccess());
+  } catch (error) {
+    dispatch(productActions.fetchProductError(error));
+  }
+};
+
+export const fetchPatchProductId = (product, id) => async (dispatch) => {
+  const productId = id.toString();
+  dispatch(productActions.fetchProductRequest());
+
+  try {
+    const { data } = await axios.patch(`/products/${productId}`, product);
+    console.log("data: ", data);
+    dispatch(productActions.patchProduct(data));
+    dispatch(productActions.fetchProductSuccess());
+  } catch (error) {
+    dispatch(productActions.fetchProductError(error));
+  }
+};
+
 export const fetchPostProduct = (product) => async (dispatch) => {
   dispatch(productActions.fetchProductRequest());
 

@@ -2,6 +2,8 @@ import { createSelector } from "reselect";
 
 const getAllProducts = (state) => state.products.productsItems.items;
 const getFilter = (state) => state.products.filter;
+const getLoading = (state) => state.products.productsItems.isLoading;
+const getProduct = (state) => state.products.productsItems.product;
 
 const getFilteredProducts = createSelector(
   [getAllProducts, getFilter],
@@ -13,4 +15,10 @@ const getFilteredProducts = createSelector(
   }
 );
 
-export { getAllProducts, getFilter, getFilteredProducts };
+export {
+  getAllProducts,
+  getFilter,
+  getFilteredProducts,
+  getLoading,
+  getProduct,
+};

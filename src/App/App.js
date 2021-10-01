@@ -1,35 +1,25 @@
-import { useState } from "react";
+import { Switch } from "react-router-dom";
+import { Route, Redirect } from "react-router-dom";
 import ProductsListView from "../Views/ProductsListView";
-import ModalWindow from "../Components/ModalWindow";
+import ProductView from "../Views/ProductView";
 import "./App.css";
 
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
 
 function App() {
-  const [modal, setModal] = useState(false);
-
-  function openModal(e) {
-    // const elementId = +e.target.dataset.id;
-    // const modalImg = photos.filter((photo) => {
-    //   return photo.id === elementId;
-    // });
-    // modalImg?.forEach((elem) => {
-    //   setLargeUrl(elem.largeImageURL);
-    //   setAlt(elem.tags);
-    // });
-    setModal(true);
-  }
-
-  function toggleModal() {
-    setModal(!modal);
-  }
-
   return (
     <div className="App">
-      <ProductsListView openModal={openModal} />
+      <Switch>
+        <Route path="/InforceTask" exact>
+          <ProductsListView />
+        </Route>
+        <Route path="/InforceTask/:productid">
+          <ProductView />
+        </Route>
+        <Redirect to="/InforceTask" exact />
+      </Switch>
 
-      {modal && <ModalWindow closeModal={toggleModal} />}
       <ToastContainer
         position="top-right"
         autoClose={4000}
