@@ -78,6 +78,16 @@ const AddProductForm = () => {
 
   function toggleForm() {
     setOpenForm(!openForm);
+    setTimeout(() => {
+      scrollToTop();
+    }, 300);
+  }
+
+  function scrollToTop() {
+    window.scrollTo({
+      top: document.documentElement.scrollHeight,
+      behavior: "smooth",
+    });
   }
 
   return (
